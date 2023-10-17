@@ -20,13 +20,14 @@ public class MainActivity extends AppCompatActivity {
     Button btnStart;
     Button btnResume;
     Button btnPause;
+    Button btnRestart;
     TextView statusTime;
     ProgressBar progressBar;
     long totalTime = 0;
     long saveTotalTime;
     int interval = 1;
     long s1 = 0;
-
+    String time;
     NumberPicker hourPicker;
     NumberPicker minutePicker;
     NumberPicker secondPicker;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         btnStart = findViewById(R.id.start);
         btnResume = findViewById(R.id.resume);
         btnPause = findViewById(R.id.pause);
+        btnRestart = findViewById(R.id.restart);
         statusTime = findViewById(R.id.countDownTime);
         progressBar = findViewById(R.id.progressBar);
         Dialog dialog = new Dialog(MainActivity.this);
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         secondPicker.setMaxValue(59);
         btnPause.setVisibility(View.INVISIBLE);
         btnResume.setVisibility(View.INVISIBLE);
+        btnRestart.setVisibility(View.INVISIBLE);
         statusTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         int hour = hourPicker.getValue();
                         int minute = minutePicker.getValue();
                         int second = secondPicker.getValue();
-                        String time = String.format("%02d:%02d:%02d", hour, minute, second);
+                        time = String.format("%02d:%02d:%02d", hour, minute, second);
                         statusTime.setText(time);
                         totalTime = convertTextViewTimeToSeconds(statusTime) * 1000 + 1000;
                         saveTotalTime = totalTime;
@@ -80,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnRestart.setVisibility(View.VISIBLE);
                 btnPause.setVisibility(View.VISIBLE);
                 btnStart.setVisibility(View.INVISIBLE);
                 countDownTimer = new CountDownTimer(totalTime, interval) {
@@ -101,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onFinish() {
                         progressBar.setProgress(100);
                         countDownTimer.cancel();
+                        btnRestart.setVisibility(View.INVISIBLE);
                         btnPause.setVisibility(View.INVISIBLE);
                         btnStart.setVisibility(View.VISIBLE);
                         saveTotalTime = 0;
@@ -153,8 +158,21 @@ public class MainActivity extends AppCompatActivity {
                         countDownTimer.cancel();
                         btnPause.setVisibility(View.INVISIBLE);
                         btnStart.setVisibility(View.VISIBLE);
+                        btnRestart.setVisibility(View.INVISIBLE);
                     }
                 }.start();
+            }
+        });
+        btnRestart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                countDownTimer.cancel();
+                statusTime.setText(time);
+                btnRestart.setVisibility(View.INVISIBLE);
+                btnResume.setVisibility(View.INVISIBLE);
+                btnPause.setVisibility(View.INVISIBLE);
+                btnStart.setVisibility(View.VISIBLE);
+                progressBar.setProgress(progressBar.getMax());
             }
         });
 
