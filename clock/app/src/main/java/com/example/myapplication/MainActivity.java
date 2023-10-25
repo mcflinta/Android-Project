@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
 import android.app.Dialog;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -159,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
                         btnPause.setVisibility(View.INVISIBLE);
                         btnStart.setVisibility(View.VISIBLE);
                         btnRestart.setVisibility(View.INVISIBLE);
+                        MediaPlayer mp = MediaPlayer.create(getBaseContext(), (R.raw.sound));
                     }
                 }.start();
             }

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="monman">Món mặn</string>
+    <string name="moncanh">Món canh</string>
+    <string name="monxao">Món xào</string>
+    <string name="tensp">10 sản phảm</string>
+    <string name="fivesp">5 sản phẩm</string>
+    <string name="tenspsale">10 đang giảm giá</string>
+</resources>

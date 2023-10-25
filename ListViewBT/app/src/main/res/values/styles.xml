@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="YourAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize Toolbar appearance -->
+        <item name="colorPrimary">@color/cardview_dark_background</item>
+<!--        <item name="colorPrimaryDark">@color/your_primary_dark_color</item>-->
+<!--        <item name="colorAccent">@color/your_accent_color</item>-->
+    </style>
+</resources>
