@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.ColorSpace;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,5 +38,13 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new MyAdapter(this, itemList);
         recyclerView.setAdapter(adapter);
+        adapter.setOnItemClickListener(new clickItemListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra("positionItem", position);
+                startActivity(intent);
+            }
+        });
     }
 }

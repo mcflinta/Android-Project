@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondActivity">
+    <Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="5dp"
+        android:navigationIcon="?attr/homeAsUpIndicator">
+        <TextView
+            android:id="@+id/TVTitle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thông tin chi tiết"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="30dp"
+            />
+    </Toolbar>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_below="@+id/toolBar"
+        android:background="@drawable/shadow_toolbar" />
+    <View
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolBar"
+        android:background="#FF0000"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RCV1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolBar"
+        >
+    </androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>
