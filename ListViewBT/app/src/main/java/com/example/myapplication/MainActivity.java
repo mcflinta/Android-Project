@@ -31,11 +31,6 @@ public class MainActivity extends AppCompatActivity {
         itemList.add(new Model(R.drawable.image5, R.drawable.iconarrowrignt, R.drawable.icondinner, R.drawable.iconsale, "Món xào", "5 sản phẩm", "5 đang giảm giá"));
 
 
-//        itemList.add(new Model(R.drawable.image2, "Item 2"));
-//        itemList.add(new Model(R.drawable.image3, "Item 3"));
-//        itemList.add(new ListItem(R.drawable.image4, "Item 4"));
-//        itemList.add(new ListItem(R.drawable.image5, "Item 5"));
-
         adapter = new MyAdapter(this, itemList);
         recyclerView.setAdapter(adapter);
         adapter.setOnItemClickListener(new clickItemListener() {

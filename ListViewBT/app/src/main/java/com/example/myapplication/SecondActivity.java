@@ -40,5 +40,15 @@ public class SecondActivity extends AppCompatActivity {
             adapter = new MyAdapter2(this, itemList);
             recyclerView.setAdapter(adapter);
         }
+        else if(getPosition == 2)
+        {
+            itemList = new ArrayList<>();
+            itemList.add(new Model2(R.drawable.boxaotoi, R.drawable.iconarrowrignt, R.drawable.threestar, "Bò xào tỏi", "18000₫", "20000₫"));
+            itemList.add(new Model2(R.drawable.raumuongxao, R.drawable.iconarrowrignt, R.drawable.fivestar, "Rau muống xào", "10000₫", "15000₫"));
+            itemList.add(new Model2(R.drawable.tomxaohanh, R.drawable.iconarrowrignt, R.drawable.onestar, "Tôm xào hành", "9000₫", "14000₫"));
+            itemList.add(new Model2(R.drawable.tomxao, R.drawable.iconarrowrignt, R.drawable.threestar, "Tôm xào", "10000₫", "14000₫"));
+            adapter = new MyAdapter2(this, itemList);
+            recyclerView.setAdapter(adapter);
+        }
     }
 }
