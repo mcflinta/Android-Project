@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +16,20 @@ public class SecondActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private MyAdapter2 adapter;
     private List<Model2> itemList;
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         recyclerView = findViewById(R.id.RCV1);
+        toolbar = findViewById(R.id.toolBar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SecondActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         int getPosition = getIntent().getIntExtra("positionItem", 0);
         if (getPosition == 0)
